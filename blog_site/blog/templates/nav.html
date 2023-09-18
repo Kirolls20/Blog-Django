@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="{% static 'css/nav_style.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="nav-title">The Blog</li>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Link</a></li>
+            {% if user.is_authenticated %}
+                <li style="float:right;"><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li style="float:right;"><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+            
+        </ul>
+    </nav>
+
+   
+</body>
+</html>

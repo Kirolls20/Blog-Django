@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+<body>
+    {%block content %}
+    <link rel="stylesheet" href="{% static 'css/blog_list_style.css' %}">
+    <div class="container">
+        <header>
+            <h1>My Blog</h1>
+            <p>Welcome to my blog!</p>
+        </header>
+        <main>
+            {% for blog in blogs %}
+                
+            <article class="blog-post">
+                <h6 class="text-muted">By {{blog.user.username}}</h6>
+                <h6 class="text-muted"> {{blog.created_date}}</h6>
+                <h2>{{blog.title}}</h2>
+                <p>{{blog.blog_body}}</p>
+                <br>
+            </article>
+        </main>
+        <aside class="sidebar">
+            <section>
+                <h2>Categories</h2>
+                <ul>
+                    <li><a href="/category1">Category 1</a></li>
+                    <li><a href="/category2">Category 2</a></li>
+                    <li><a href="/category3">Category 3</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Recent Posts</h2>
+                <ul>
+                    <li><a href="/post1">Post Title 1</a></li>
+                    <li><a href="/post2">Post Title 2</a></li>
+                    <!-- Add more recent posts as needed -->
+                </ul>
+            </section>
+            
+        </aside>
+        {% endfor %}
+    </div>
+</body>
+        {% endblock %} 
+    

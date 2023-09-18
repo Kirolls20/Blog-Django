@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
+    {% block title %}
+      <title></title>
+    {% endblock %}
+    <style>
+      .message-container{
+        width:fit-content;
+        padding: 10px;
+        margin:8px;
+        border-radius: 10px;
+        background-color: rgb(185, 131, 93);
+        font-size: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0 ,0.1);
+      }
+    </style> 
+  </head>
+  {% include 'nav.html' %}
+  {% if messages %}
+  <div class="message-container">
+    {% for message in messages %}
+      {{message}}
+    {% endfor %}
+  {% endif %}
+  </div>
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+</html>
