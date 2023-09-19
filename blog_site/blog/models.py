@@ -19,6 +19,7 @@ class Blog(models.Model):
     user= models.ForeignKey(User,on_delete=models.CASCADE)
     title= models.CharField(max_length=200,blank=False)
     blog_body = models.TextField()
+    blog_image = models.ImageField(blank=True,null=True,upload_to='blog_images/')
     likes = models.ManyToManyField(User,related_name='blog_likes',blank=True)
     comments = models.ManyToManyField(User,related_name='blog_comments',through='Comment')
     created_date = models.DateTimeField(auto_now_add=True)

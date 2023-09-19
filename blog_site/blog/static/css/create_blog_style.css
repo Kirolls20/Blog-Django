@@ -1,0 +1,43 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+}
+.blog-form-container{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0 ,0.1);
+    width: 300px;
+    padding:40px;
+    margin: 0 auto;
+}
+
+.custom-input{
+    width:100%;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+}
+.custom-textarea{
+    width:100%;
+    border: 2px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    resize: none; /* Prevent resizing of textarea */    
+}
+
+.form-group input[type='submit']{
+    background-color: #007bff;
+    color: #fff;
+    width:100%;
+    margin-bottom:10px;
+    font-size: 18px;
+    border:none;
+    border-radius: 10px;
+    padding:10px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+.form-group input[type="submit"]:hover{
+    background-color: #0056b3;
+}

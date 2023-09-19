@@ -9,35 +9,50 @@ body{
     grid-template-columns: 2fr 1fr; /* Two equal-width columns */
     grid-gap: 20px; /* Spacing between columns */
 }
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Two equal-width columns */
+    grid-gap: 20px; /* Spacing between columns */
+    grid-template-areas:
+        "header header"
+        "main sidebar"; /* Define the layout of grid areas */
+}
 
 header {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    grid-column: span 2; /* Span both columns */
+    grid-area: header; /* Position in the "header" area */
 }
-main{
-    
-    padding: 10px;
-}
-.blog-post{
 
+main {
+    padding: 10px;
+    grid-area: main; /* Position in the "main" area */
+}
+
+.blog-post {
     background-color: #d1c5c5;
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.blog-post h2{
-    font-size:24px;
+
+.blog-post h2 {
+    font-size: 24px;
     margin-bottom: 10px;
 }
+
 .sidebar {
     background-color: #dfd5d5;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .sidebar h2 {
     font-size: 20px;
     margin-bottom: 10px;
@@ -53,7 +68,10 @@ main{
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .container{
+    .container {
         grid-template-columns: 1fr;
+        display: block;
     }
+
+    /* Optionally, you can further adjust styles for individual elements here */
 }

@@ -9,8 +9,7 @@
             <p>Welcome to my blog!</p>
         </header>
         <main>
-            {% for blog in blogs %}
-                
+            {% for blog in blogs %}    
             <article class="blog-post">
                 <h6 class="text-muted">By {{blog.user.username}}</h6>
                 <h6 class="text-muted"> {{blog.created_date}}</h6>
@@ -18,6 +17,7 @@
                 <p>{{blog.blog_body}}</p>
                 <br>
             </article>
+            {% endfor %}
         </main>
         <aside class="sidebar">
             <section>
@@ -38,8 +38,7 @@
             </section>
             
         </aside>
-        {% endfor %}
     </div>
+    {% endblock %} 
 </body>
-        {% endblock %} 
     
