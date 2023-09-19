@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/profile_style.css' %}">
+</head>
+<body>
+    <br>
+    <div class="profile-container">
+    {% if user.profile_pic %}
+            <img src="{{user.profile_pic.url}}" alt="{{user.username}} Profile Image" class="profile-image">
+    {% else %}
+            <img src="{% static 'images/user_profile.png' %}" alt="{{user.username}} Profile Image" class="profile-image">
+    {% endif %}
+        <h3>{{user.username}}</h3>
+        <br>
+        <hr>    
+    </div>
+    <div class="user-blogs-container">
+        {% for blog in blogs %}
+            {{blog.title}} <br> 
+
+        {% endfor %}
+    </div>
+    </body>
+    {% endblock %}

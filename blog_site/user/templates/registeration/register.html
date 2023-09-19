@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/register_style.css' %}">
+</head>
+
+<body>
+    <div class="register-form-container">
+        <h2>Create New User</h2>
+    <form action="{% url 'register_user' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {{form.as_p}} 
+    </div><br>
+    <div class="form-group">
+        <input type="submit" value="Create New Account">
+    </div>
+</form>
+
+    </div>
+</body>
+{% endblock %}

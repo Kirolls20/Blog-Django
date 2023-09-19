@@ -1,0 +1,13 @@
+.profile-container{
+    text-align: center;
+    justify-content:center ;
+
+}
+.profile-image{
+    width: 150px; /* Set the desired width */
+    height: 150px; /* Set the desired height */
+    border-radius: 50%; /* Create a circular profile image */
+    border: 3px solid #fff; /* Add a white border around the image */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+

@@ -15,9 +15,11 @@
             
             {% if user.is_authenticated %}
                 <li><a href="{% url 'create_blog' %}">Create Blog</a></li>
-                <li style="float:right;"><a href="{% url 'logout' %}">Logout</a></li>
+                <li style="float:right;"><a href="{% url 'logout' %}">Logout </a></li>
+                <li style="float:right;"><a href="{% url 'profile' user.id %}">{{request.user.username}}</a></li>
             {% else %}
                 <li style="float:right;"><a href="{% url 'login' %}">Login</a></li>
+                <li style="float:right;"><a href="{% url 'register_user' %}">Register</a></li>
             {% endif %}
             
         </ul>
