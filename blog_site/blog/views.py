@@ -5,7 +5,7 @@ from django.shortcuts import render,redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView ,ListView,DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView,UpdateView,DeleteView
 from django.contrib import messages
 from .models import Blog,User
 from .forms import BlogForm
@@ -29,6 +29,19 @@ class CreateBlogPost(LoginRequiredMixin,CreateView):
         form.save()
         return super().form_valid(form)
 
+class EditBlogView(LoginRequiredMixin,UpdateView):
+    template_name = 'edit_blog.html'
+    model= Blog
+    form_class = BlogForm
+
+    def get_success_url(self) :
+        return reverse_lazy('home')
+class DeleteBlogView(LoginRequiredMixin,DeleteView):
+    template_name = 'home.html'
+    model= Blog
+
+    def get_success_url(self) :
+        return reverse_lazy('home')
 class ProfileView(LoginRequiredMixin,DetailView):
     template_name='profile.html'
     model= User

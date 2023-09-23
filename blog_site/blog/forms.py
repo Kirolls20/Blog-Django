@@ -3,30 +3,30 @@ from .models import Blog
 from django.contrib.auth.forms import UserCreationForm
 from blog.models import User
 class BlogForm(forms.ModelForm):
-    # title = forms.CharField(
-    #     max_length=100,
-    #     required=True,
-    #     widget = forms.widgets.TextInput(
-    #         attrs ={
-    #             'placeholder':'Blog Title..',
-    #             'class':'custom-input'
-    #         }
-    #     )
-    # )
-    # blog_body = forms.CharField(
-    #     required=True,
-    #     widget= forms.widgets.Textarea(
-    #         attrs={
-    #             'placeholder':'Bolg Body..',
-    #             'class':'custom-textarea'
-    #         }
-    #     )
-    # )
-    # blog_image = forms.FileField(required=False)
+    title = forms.CharField(
+        max_length=100,
+        required=True,
+        widget = forms.widgets.TextInput(
+            attrs ={
+                'placeholder':'Blog Title..',
+                'class':'input-field'
+            }
+        )
+    )
+    blog_body = forms.CharField(
+        required=True,
+        widget= forms.widgets.Textarea(
+            attrs={
+                'placeholder':'Bolg Body..',
+                'class':'custom-textarea'
+            }
+        )
+    )
+    blog_image = forms.FileField(required=False)
 
     class Meta:
         model= Blog
-        fields =['title','blog_body','blog_image']
+        # fields =['title','blog_body','blog_image']
         exclude = ['user','likes','comments']
 
 

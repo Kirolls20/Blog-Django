@@ -19,10 +19,17 @@
             <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
         </button>
             <ul class="dropdown-menu">
-            <!-- Edit Form --> 
-                <li class="dropdown-item"><a href="#">Edit</a></li>
-                <!-- Delete Form  -->
-                <li class="dropdown-item"><a href="#">Delete</a></li>
+                <!-- Edit Form --> 
+                {% if request.user == blog.user %}
+                    <li class="dropdown-item" ><a href="{% url 'edit_blog' blog.id %}" style="color:blue">Edit</a></li>
+                    <!-- Delete Form  -->
+                    <form action="{% url 'delete_blog' blog.id %}" method="post" onsubmit=" return confirmSubmison()">
+                        {% csrf_token %}
+                        <button type="submit" class="dropdown-item" style="color:blue">Delete</button>
+                    </form>
+                {% else %}
+                    <li class="dropdown-item">Other</li>
+                {% endif %}
             </ul>
         </div>       
                 <h6 class="text-muted">By {{blog.user.username}}</h6>
@@ -30,6 +37,7 @@
                 <h2>{{blog.title}}</h2>
                 <p>{{blog.blog_body}}</p>
                 <br>
+                <img src="{{blog.blog_image.url}}" alt="image">
                 <div class="like-commen-container">
                     <i class="fa-regular fa-thumbs-up"></i>
                     <i class="fa-regular fa-comment"></i>
@@ -56,8 +64,14 @@
             </section>
             
         </aside>
-    </div>
+    </div> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        function confirmSubmison(){
+            var onConfirm = confirm('Are you sure you want to delete this blog..?')
+            return onConfirm;
+        }
+    </script>
     {% endblock %} 
 </body>
     

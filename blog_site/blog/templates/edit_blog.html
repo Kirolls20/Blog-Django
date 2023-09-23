@@ -6,12 +6,12 @@
     <br>
     <link rel="stylesheet" href="{% static 'css/create_blog_style.css' %}">
     <div class="blog-form-container" >
-    <h2>Create New Blog Post</h2><br>
-    <form action="{% url 'create_blog' %}" method="post" enctype="multipart/form-data" style="margin-bottom:20px;">
+    <h2> Update Blog Post</h2><br>
+    <form action="" method="post" style="margin-bottom:20px;">
         {% csrf_token %}
         {{form.as_p}} <br>
         <div class="form-group">
-            <input type="submit" value="Create Blog">
+            <input type="submit" value="Update Blog">
         </div>
     </form>
 
