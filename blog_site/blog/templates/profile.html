@@ -16,11 +16,24 @@
         <br>
         <hr>    
     </div>
+    
+    {% for blog in blogs %}
     <div class="user-blogs-container">
-        {% for blog in blogs %}
-            {{blog.title}} <br> 
-
+            <article class="blog-post-profile">
+                <h6 class="text-muted">By {{blog.user.username}}</h6>
+                <h6 class="text-muted"> {{blog.created_date}}</h6>
+                <h2>{{blog.title}}</h2>
+                <p>{{blog.blog_body}}</p>
+                <br>
+                <div class="like-commen-container">
+                    <i class="fa-regular fa-thumbs-up"></i>
+                    <i class="fa-regular fa-comment"></i>
+                </div>
+                
+            </article><br>
+            
+        </div>
+        
         {% endfor %}
-    </div>
     </body>
     {% endblock %}
