@@ -33,10 +33,14 @@
             </ul>
         </div>       
                 <h6 class="text-muted">By {{blog.user.username}}</h6>
-                <h6 class="text-muted"> {{blog.created_date}}</h6>
+                <h6 class="text-muted"> {{blog.updated}}</h6>
                 <h2>{{blog.title}}</h2>
                 <p>{{blog.blog_body}}</p>
                 <br>
+                {% if blog.blog_img %}
+                    <img src="{{blog.blog_img.url}}" alt="Blog image">
+                {% endif %}
+                
                 <div class="like-commen-container">
                     <i class="fa-regular fa-thumbs-up"></i>
                     <i class="fa-regular fa-comment"></i>

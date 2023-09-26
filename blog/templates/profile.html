@@ -7,8 +7,8 @@
 <body>
     <br>
     <div class="profile-container">
-    {% if user.profile_pic %}
-            <img src="{{user.profile_pic.url}}" alt="{{user.username}} Profile Image" class="profile-image">
+    {% if user.profile_img %}
+            <img src="{{user.profile_img.url}}" alt="{{user.username}} Profile Image" class="profile-image">
     {% else %}
             <img src="{% static 'images/user_profile.png' %}" alt="{{user.username}} Profile Image" class="profile-image">
     {% endif %}
