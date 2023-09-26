@@ -1,6 +1,16 @@
 import os
+# Handling the error exception of secret key
+from django.core.exceptions import ImproperlyConfigured
 from pathlib import Path
 from django.urls import reverse_lazy
+
+
+def get_env_variable(var_name):
+    try:
+        return os.environ.get(var_name)
+    except KeyError:
+        raise ImproperlyConfigured(f"SET {var_name} in Environment")
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,7 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-36&=cck^uztp04gzihevx91^0@ohn=ovebv@dutz=aurc%pp7r"
+
+
+SECRET_KEY = get_env_variable('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
