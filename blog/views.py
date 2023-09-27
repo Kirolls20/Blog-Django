@@ -10,11 +10,14 @@ from django.contrib import messages
 from .models import Blog,User
 from .forms import BlogForm
 
-class BlogListView(ListView):
+class BlogHome(ListView):
     template_name = 'home.html'
     model = Blog
-    context_object_name = 'blogs'
-
+    
+    def get_context_data(self, **kwargs):
+        context= super().get_context_data(**kwargs)
+        context['blogs'] = Blog.objects.all().order_by('-updated')
+        return context
 class CreateBlogPost(LoginRequiredMixin,CreateView):
     template_name= 'create_blog.html'
     model= Blog
