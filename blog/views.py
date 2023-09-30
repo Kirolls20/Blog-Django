@@ -7,7 +7,7 @@ from django.views.generic import TemplateView ,ListView,DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
 from django.contrib import messages
-from .models import Blog,User
+from .models import Blog,User,CustomModelManager
 from .forms import BlogForm
 
 class BlogHome(ListView):
@@ -17,6 +17,7 @@ class BlogHome(ListView):
     def get_context_data(self, **kwargs):
         context= super().get_context_data(**kwargs)
         context['blogs'] = Blog.objects.all().order_by('-updated')
+        context['active_users'] = User.objects.active_users()
         return context
 class CreateBlogPost(LoginRequiredMixin,CreateView):
     template_name= 'create_blog.html'
